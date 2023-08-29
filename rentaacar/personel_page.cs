@@ -285,11 +285,11 @@ namespace rentaacar
             var query = from cus in conn.custumers
                         select cus;
             DataTable dataTable;
-            
-            dataTable = query;
-            DataView dv = dataTable.DefaultView;
-            dv.RowFilter = string.Format("CustomerName LIKE '%{0}%'", textBox28.Text);
-            dataGridView1.DataSource = dv;
+
+            //dataTable = query;
+            //DataView dv = dataTable.DefaultView;
+            //dv.RowFilter = string.Format("CustomerName LIKE '%{0}%'", textBox28.Text);
+            //dataGridView1.DataSource = dv;
         }
     }
 }
