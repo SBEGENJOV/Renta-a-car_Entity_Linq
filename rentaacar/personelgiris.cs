@@ -43,7 +43,7 @@ namespace rentaacar
         {
             if (loginUser(textBox1.Text, textBox2.Text))
             {
-                Form1 go = new Form1();
+                personel_page go = new personel_page();
                 go.Show();
                 this.Hide();
             }

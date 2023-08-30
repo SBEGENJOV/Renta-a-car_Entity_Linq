@@ -23,11 +23,14 @@ namespace rentaacar
             fgec.Show();
             this.Hide();
         }
-
+        public static int deger;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             custumer custumerr = new custumer();
-            var ktel = conn.custumers.Where(a => a.custumerPhone==textBox2.Text);
+            var ktel = (from cus in conn.custumers
+                       where cus.custumerPhone==textBox2.Text
+                       select cus.custumerPhone).FirstOrDefault();
+                //conn.custumers.Where(a => a.custumerPhone == textBox2.Text);
             if (ktel!=null)
             {
                 MessageBox.Show("Bu telefon numarası ile zaten hesap oluşturuldu");
@@ -41,10 +44,11 @@ namespace rentaacar
                 custumerr.custumerDeposit = decimal.Parse(textBox5.Text);
                 conn.custumers.Add(custumerr);
                 conn.SaveChanges();
-                MessageBox.Show("üyelik işlemi okey");
+                MessageBox.Show("Üyelik Tamamlandı Tekrar Giriş Yapın");
                 Form1 fgec = new Form1();
                 fgec.Show();
                 this.Hide();
+               
             }
         }
 

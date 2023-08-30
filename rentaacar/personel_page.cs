@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq.Mapping;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -47,11 +48,10 @@ namespace rentaacar
             
             dataGridView1.DataSource = conn.personels.ToList();
         }
-
+        
         private void personel_page_Load(object sender, EventArgs e)
         {
-            //this.Width = 1360;
-            //this.Height = 777;
+            
         }
 
         private void simpleButton17_Click(object sender, EventArgs e)
@@ -279,17 +279,34 @@ namespace rentaacar
 
             dataGridView1.DataSource = query.ToList();
         }
-
+        
         private void textBox20_TextChanged(object sender, EventArgs e)
         {
-            var query = from cus in conn.custumers
-                        select cus;
-            DataTable dataTable;
+            var query = from c in conn.cars
+                        select new { c.carNo, c.carModel, c.carPlaque };
 
-            //dataTable = query;
-            //DataView dv = dataTable.DefaultView;
-            //dv.RowFilter = string.Format("CustomerName LIKE '%{0}%'", textBox28.Text);
-            //dataGridView1.DataSource = dv;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("carNo"); // Sütunları ekleyin
+            dt.Columns.Add("carModel");
+            dt.Columns.Add("carPlaque");
+
+            foreach (var item in query)
+            {
+                DataRow newRow = dt.NewRow();
+                newRow["carNo"] = item.carNo;
+                newRow["carModel"] = item.carModel;
+                newRow["carPlaque"] = item.carPlaque;
+                dt.Rows.Add(newRow);
+            }
+
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = string.Format("carModel LIKE '%{0}%'", textBox20.Text);
+            dataGridView1.DataSource = dv;
+        }
+
+        private void textBox20_Click(object sender, EventArgs e)
+        {
+            textBox20.Text = "";
         }
     }
 }

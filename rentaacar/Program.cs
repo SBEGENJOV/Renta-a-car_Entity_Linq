@@ -16,7 +16,7 @@ namespace rentaacar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new personel_page());
+            Application.Run(new Form1());
         }
     }
 }

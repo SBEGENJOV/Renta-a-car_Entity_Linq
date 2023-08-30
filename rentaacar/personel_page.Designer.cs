@@ -113,7 +113,6 @@
             this.simpleButton36 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton37 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton38 = new DevExpress.XtraEditors.SimpleButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -940,28 +939,15 @@
             this.simpleButton38.Text = "ŞUBEDEKİ ÇALIŞAN\r\nSAYILARI";
             this.simpleButton38.Click += new System.EventHandler(this.simpleButton38_Click);
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Araç",
-            "Kullanıcı",
-            "Personel",
-            "Şube"});
-            this.comboBox3.Location = new System.Drawing.Point(2, 484);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(142, 24);
-            this.comboBox3.TabIndex = 38;
-            this.comboBox3.Text = "Seç ve Button bas";
-            // 
             // textBox20
             // 
             this.textBox20.Location = new System.Drawing.Point(2, 365);
             this.textBox20.Multiline = true;
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(142, 113);
+            this.textBox20.Size = new System.Drawing.Size(142, 149);
             this.textBox20.TabIndex = 39;
-            this.textBox20.Text = "Aranacak İsimi Yaz";
+            this.textBox20.Text = "Aranacak Araba Modelini Gir:";
+            this.textBox20.Click += new System.EventHandler(this.textBox20_Click);
             this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
             // 
             // personel_page
@@ -971,7 +957,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1369, 730);
             this.Controls.Add(this.textBox20);
-            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.simpleButton38);
             this.Controls.Add(this.simpleButton36);
             this.Controls.Add(this.simpleButton37);
@@ -1105,7 +1090,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton36;
         private DevExpress.XtraEditors.SimpleButton simpleButton37;
         private DevExpress.XtraEditors.SimpleButton simpleButton38;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox20;
     }
 }
