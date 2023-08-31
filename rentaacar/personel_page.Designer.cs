@@ -39,7 +39,6 @@
             this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
@@ -66,7 +64,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -114,10 +111,14 @@
             this.simpleButton37 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton38 = new DevExpress.XtraEditors.SimpleButton();
             this.textBox20 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -130,6 +131,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(710, 347);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // simpleButton1
             // 
@@ -181,11 +183,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.simpleButton10);
             this.groupBox1.Controls.Add(this.simpleButton9);
             this.groupBox1.Controls.Add(this.simpleButton8);
             this.groupBox1.Controls.Add(this.simpleButton5);
-            this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label5);
@@ -215,6 +217,7 @@
             this.simpleButton10.Size = new System.Drawing.Size(159, 48);
             this.simpleButton10.TabIndex = 14;
             this.simpleButton10.Text = "Kullanıcı Ara";
+            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
             // 
             // simpleButton9
             // 
@@ -226,6 +229,7 @@
             this.simpleButton9.Size = new System.Drawing.Size(159, 48);
             this.simpleButton9.TabIndex = 13;
             this.simpleButton9.Text = "Kullanıcı Güncelle";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // simpleButton8
             // 
@@ -237,6 +241,7 @@
             this.simpleButton8.Size = new System.Drawing.Size(159, 48);
             this.simpleButton8.TabIndex = 12;
             this.simpleButton8.Text = "Kullanıcı Sil";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
             // 
             // simpleButton5
             // 
@@ -248,13 +253,7 @@
             this.simpleButton5.Size = new System.Drawing.Size(159, 48);
             this.simpleButton5.TabIndex = 6;
             this.simpleButton5.Text = "Kirala";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(174, 182);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(125, 22);
-            this.textBox6.TabIndex = 11;
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // label6
             // 
@@ -340,13 +339,13 @@
             // 
             this.label1.Location = new System.Drawing.Point(6, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(136, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kullanıcı Adı:";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.simpleButton13);
+            this.groupBox2.Controls.Add(this.maskedTextBox1);
             this.groupBox2.Controls.Add(this.simpleButton12);
             this.groupBox2.Controls.Add(this.simpleButton11);
             this.groupBox2.Controls.Add(this.simpleButton6);
@@ -360,7 +359,6 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.textBox11);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox10);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.textBox9);
             this.groupBox2.Controls.Add(this.label9);
@@ -376,49 +374,41 @@
             this.groupBox2.Text = "Araç Ekleme";
             this.groupBox2.Visible = false;
             // 
-            // simpleButton13
-            // 
-            this.simpleButton13.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton13.Appearance.Options.UseFont = true;
-            this.simpleButton13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton13.ImageOptions.Image")));
-            this.simpleButton13.Location = new System.Drawing.Point(326, 186);
-            this.simpleButton13.Name = "simpleButton13";
-            this.simpleButton13.Size = new System.Drawing.Size(159, 31);
-            this.simpleButton13.TabIndex = 32;
-            this.simpleButton13.Text = "Araç Ara";
-            // 
             // simpleButton12
             // 
             this.simpleButton12.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton12.Appearance.Options.UseFont = true;
             this.simpleButton12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton12.ImageOptions.Image")));
-            this.simpleButton12.Location = new System.Drawing.Point(326, 151);
+            this.simpleButton12.Location = new System.Drawing.Point(326, 175);
             this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.Size = new System.Drawing.Size(159, 31);
+            this.simpleButton12.Size = new System.Drawing.Size(159, 43);
             this.simpleButton12.TabIndex = 31;
             this.simpleButton12.Text = "Araç Güncelle";
+            this.simpleButton12.Click += new System.EventHandler(this.simpleButton12_Click);
             // 
             // simpleButton11
             // 
             this.simpleButton11.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton11.Appearance.Options.UseFont = true;
             this.simpleButton11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton11.ImageOptions.Image")));
-            this.simpleButton11.Location = new System.Drawing.Point(326, 115);
+            this.simpleButton11.Location = new System.Drawing.Point(326, 128);
             this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(159, 31);
+            this.simpleButton11.Size = new System.Drawing.Size(159, 42);
             this.simpleButton11.TabIndex = 30;
             this.simpleButton11.Text = "Araç Sil";
+            this.simpleButton11.Click += new System.EventHandler(this.simpleButton11_Click);
             // 
             // simpleButton6
             // 
             this.simpleButton6.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
-            this.simpleButton6.Location = new System.Drawing.Point(326, 79);
+            this.simpleButton6.Location = new System.Drawing.Point(326, 80);
             this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(159, 31);
+            this.simpleButton6.Size = new System.Drawing.Size(159, 42);
             this.simpleButton6.TabIndex = 12;
             this.simpleButton6.Text = "Araç Ekle";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // comboBox1
             // 
@@ -500,13 +490,6 @@
             this.label11.Size = new System.Drawing.Size(75, 16);
             this.label11.TabIndex = 20;
             this.label11.Text = "Araç Motor:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(10, 195);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(132, 22);
-            this.textBox10.TabIndex = 19;
             // 
             // label10
             // 
@@ -601,6 +584,7 @@
             this.simpleButton16.Size = new System.Drawing.Size(159, 52);
             this.simpleButton16.TabIndex = 43;
             this.simpleButton16.Text = "Personel Ara";
+            this.simpleButton16.Click += new System.EventHandler(this.simpleButton16_Click);
             // 
             // simpleButton15
             // 
@@ -612,6 +596,7 @@
             this.simpleButton15.Size = new System.Drawing.Size(159, 52);
             this.simpleButton15.TabIndex = 42;
             this.simpleButton15.Text = "Personel Güncelle";
+            this.simpleButton15.Click += new System.EventHandler(this.simpleButton15_Click);
             // 
             // simpleButton14
             // 
@@ -623,6 +608,7 @@
             this.simpleButton14.Size = new System.Drawing.Size(159, 52);
             this.simpleButton14.TabIndex = 41;
             this.simpleButton14.Text = "Personel Sil";
+            this.simpleButton14.Click += new System.EventHandler(this.simpleButton14_Click);
             // 
             // simpleButton7
             // 
@@ -634,6 +620,7 @@
             this.simpleButton7.Size = new System.Drawing.Size(159, 52);
             this.simpleButton7.TabIndex = 30;
             this.simpleButton7.Text = "Personel Ekle";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
             // 
             // comboBox2
             // 
@@ -737,7 +724,7 @@
             this.simpleButton17.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton17.Appearance.Options.UseFont = true;
             this.simpleButton17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton17.ImageOptions.Image")));
-            this.simpleButton17.Location = new System.Drawing.Point(12, 138);
+            this.simpleButton17.Location = new System.Drawing.Point(12, 215);
             this.simpleButton17.Name = "simpleButton17";
             this.simpleButton17.Size = new System.Drawing.Size(132, 65);
             this.simpleButton17.TabIndex = 15;
@@ -749,9 +736,9 @@
             this.simpleButton18.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton18.Appearance.Options.UseFont = true;
             this.simpleButton18.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton18.ImageOptions.Image")));
-            this.simpleButton18.Location = new System.Drawing.Point(12, 211);
+            this.simpleButton18.Location = new System.Drawing.Point(12, 290);
             this.simpleButton18.Name = "simpleButton18";
-            this.simpleButton18.Size = new System.Drawing.Size(132, 68);
+            this.simpleButton18.Size = new System.Drawing.Size(132, 70);
             this.simpleButton18.TabIndex = 16;
             this.simpleButton18.Text = "Araç";
             this.simpleButton18.Click += new System.EventHandler(this.simpleButton18_Click);
@@ -761,9 +748,9 @@
             this.simpleButton19.Appearance.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton19.Appearance.Options.UseFont = true;
             this.simpleButton19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton19.ImageOptions.Image")));
-            this.simpleButton19.Location = new System.Drawing.Point(12, 285);
+            this.simpleButton19.Location = new System.Drawing.Point(12, 366);
             this.simpleButton19.Name = "simpleButton19";
-            this.simpleButton19.Size = new System.Drawing.Size(132, 72);
+            this.simpleButton19.Size = new System.Drawing.Size(132, 65);
             this.simpleButton19.TabIndex = 17;
             this.simpleButton19.Text = "Personel";
             this.simpleButton19.Click += new System.EventHandler(this.simpleButton19_Click);
@@ -941,14 +928,42 @@
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(2, 365);
+            this.textBox20.Location = new System.Drawing.Point(2, 443);
             this.textBox20.Multiline = true;
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(142, 149);
+            this.textBox20.Size = new System.Drawing.Size(142, 67);
             this.textBox20.TabIndex = 39;
             this.textBox20.Text = "Aranacak Araba Modelini Gir:";
             this.textBox20.Click += new System.EventHandler(this.textBox20_Click);
             this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(174, 180);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(125, 24);
+            this.comboBox3.TabIndex = 44;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(12, 197);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(129, 22);
+            this.maskedTextBox1.TabIndex = 33;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(37, 136);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(76, 74);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 44;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // personel_page
             // 
@@ -956,6 +971,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1369, 730);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.textBox20);
             this.Controls.Add(this.simpleButton38);
             this.Controls.Add(this.simpleButton36);
@@ -999,6 +1015,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1013,7 +1030,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label5;
@@ -1026,7 +1042,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label9;
@@ -1062,7 +1077,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private System.Windows.Forms.ComboBox comboBox2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
         private DevExpress.XtraEditors.SimpleButton simpleButton11;
         private DevExpress.XtraEditors.SimpleButton simpleButton16;
@@ -1091,5 +1105,8 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton37;
         private DevExpress.XtraEditors.SimpleButton simpleButton38;
         private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

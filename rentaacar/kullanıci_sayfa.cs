@@ -22,6 +22,7 @@ namespace rentaacar
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            musterigiris.deger = 0;
             Form1 fgec = new Form1();
             fgec.Show();
             this.Hide();
